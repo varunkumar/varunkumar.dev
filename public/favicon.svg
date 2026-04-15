@@ -1,14 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- Browser frame -->
-  <rect x="1" y="1" width="30" height="30" rx="4" stroke="#f59e0b" stroke-width="1.5"/>
-  <!-- Chrome divider -->
-  <line x1="1" y1="9" x2="31" y2="9" stroke="#f59e0b" stroke-width="1.5"/>
-  <!-- Traffic lights -->
-  <circle cx="5" cy="5" r="1.5" stroke="#f59e0b" stroke-width="1"/>
-  <circle cx="9.5" cy="5" r="1.5" stroke="#f59e0b" stroke-width="1"/>
-  <!-- Nav block -->
-  <rect x="4" y="13" width="24" height="4" rx="1" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.75"/>
-  <!-- Text lines -->
-  <line x1="4" y1="21" x2="28" y2="21" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
-  <line x1="4" y1="25" x2="20" y2="25" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"
+     stroke="#f59e0b" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Dark background -->
+  <circle cx="50" cy="50" r="49" fill="#0d0d0d"/>
+
+  <!-- Face oval -->
+  <ellipse cx="50" cy="57" rx="24" ry="29" stroke-width="2"/>
+
+  <!-- Hair — filled cap, short -->
+  <path d="M26 50 C24 30 36 19 50 18 C64 19 76 30 74 50
+           C68 37 60 31 50 30 C40 31 32 37 26 50Z"
+        fill="#f59e0b" fill-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- Eyebrows -->
+  <path d="M27 44 Q33 41 39 43" stroke-width="2.5"/>
+  <path d="M61 43 Q67 41 73 44" stroke-width="2.5"/>
+
+  <!-- Left glasses lens (thick rectangular frames) -->
+  <rect x="25" y="45" width="21" height="14" rx="2" stroke-width="3"/>
+  <!-- Right glasses lens -->
+  <rect x="54" y="45" width="21" height="14" rx="2" stroke-width="3"/>
+  <!-- Bridge -->
+  <path d="M46 52 Q50 50 54 52" stroke-width="1.5"/>
+  <!-- Temples -->
+  <line x1="25" y1="52" x2="20" y2="52" stroke-width="2"/>
+  <line x1="75" y1="52" x2="80" y2="52" stroke-width="2"/>
+
+  <!-- Nose (subtle) -->
+  <path d="M47 62 Q45 68 50 70 Q55 68 53 62" stroke-width="1.5" stroke-opacity="0.55"/>
+
+  <!-- Mouth -->
+  <path d="M41 76 Q50 80 59 76" stroke-width="1.8" stroke-opacity="0.7"/>
+
+  <!-- Beard — covers chin and rides up the jaw sides -->
+  <path d="M27 66 Q25 74 28 81 Q37 90 50 91 Q63 90 72 81 Q75 74 73 66"
+        stroke-width="2" stroke-opacity="0.55" fill="#f59e0b" fill-opacity="0.08"/>
+
+  <!-- Sideburns -->
+  <path d="M26 58 Q26 63 27 66" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M74 58 Q74 63 73 66" stroke-width="2" stroke-opacity="0.5"/>
+
 </svg>
