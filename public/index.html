@@ -189,7 +189,20 @@
     .builder-svg .s-c1    { animation: draw 0.2s ease forwards 2.0s; }
     .builder-svg .s-c2    { animation: draw 0.2s ease forwards 2.15s; }
 
-    .coming-soon-label { animation: fadeUp 0.5s ease both 0.3s; }
+    /* ── Profile photo ── */
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border);
+      margin-bottom: 1.75rem;
+      display: block;
+      animation: fadeUp 0.5s ease both 0.3s;
+    }
+
+    .coming-soon-label { animation: fadeUp 0.5s ease both 0.45s; }
     .coming-soon-label::after {
       content: '_';
       margin-left: 1px;
@@ -201,7 +214,7 @@
     .social     { animation: fadeUp 0.5s ease both 0.75s; }
 
     @media (prefers-reduced-motion: reduce) {
-      .builder-svg, .coming-soon-label, h1, .taglines, .social { animation: none; opacity: 1; }
+      .builder-svg, .avatar, .coming-soon-label, h1, .taglines, .social { animation: none; opacity: 1; }
       .coming-soon-label::after { animation: none; }
       .builder-svg [pathLength] { stroke-dashoffset: 0; }
     }
@@ -216,7 +229,7 @@
       }
     })();
   </script>
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -277,6 +290,8 @@
       <rect class="s-c2" x="90" y="122" width="108" height="17" rx="2"
             pathLength="100" stroke-width="1" stroke-opacity="0.6"/>
     </svg>
+
+    <img class="avatar" src="/varun.jpeg" alt="Varunkumar Nagarajan" width="72" height="72">
 
     <p class="coming-soon-label">Coming soon</p>
 
