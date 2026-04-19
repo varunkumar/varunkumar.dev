@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Design System
+
+The visual design lives at **[claude.ai/design — varunkumar.dev project](https://api.anthropic.com/v1/design/h/3EhV9wl8dNT84pSYAU9EuA?open_file=index.html)**. When the user updates the design there and exports a handoff bundle, fetch that URL, decompress the `.tar.gz`, read `project/index.html` and `chats/chat1.md`, then port the relevant changes into the React codebase.
+
 ## Overview
 
 Personal site for Varunkumar Nagarajan at `varunkumar.dev`. Built with React + Vite. Deployed to Cloudflare Pages — Vite builds `src/` to `dist/`, which Cloudflare Pages serves from the `main` branch.
