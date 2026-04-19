@@ -6,7 +6,7 @@ export default function useGitHub(username = 'varunkumar') {
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=20`)
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(data => {
         const filtered = data
           .filter(r => !r.fork && r.description)

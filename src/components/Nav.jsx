@@ -7,7 +7,7 @@ const LINKS = ['writing', 'projects', 'about'];
 export default function Nav({ active, setActive, isDark, toggleTheme }) {
   const [scrolled, setScrolled] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const [narrow, setNarrow] = React.useState(window.innerWidth < 600);
+  const [narrow, setNarrow] = React.useState(() => window.innerWidth < 600);
 
   React.useEffect(() => {
     const el = document.getElementById('scroll-root');

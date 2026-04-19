@@ -12,11 +12,12 @@ export default function BrewingLabel() {
   const [vis, setVis] = React.useState(true);
 
   React.useEffect(() => {
+    let fade;
     const t = setInterval(() => {
       setVis(false);
-      setTimeout(() => { setIdx(i => (i + 1) % VERBS.length); setVis(true); }, 180);
+      fade = setTimeout(() => { setIdx(i => (i + 1) % VERBS.length); setVis(true); }, 180);
     }, 2000);
-    return () => clearInterval(t);
+    return () => { clearInterval(t); clearTimeout(fade); };
   }, []);
 
   return (
