@@ -1,12 +1,17 @@
 import React from 'react';
-import { T, DARK, LIGHT } from './tokens.js';
 import Nav from './components/Nav.jsx';
-import HomePage from './pages/HomePage.jsx';
-import WritingPage from './pages/WritingPage.jsx';
-import ProjectsPage from './pages/ProjectsPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
+import HomePage from './pages/HomePage.jsx';
+import ProjectsPage from './pages/ProjectsPage.jsx';
+import WritingPage from './pages/WritingPage.jsx';
+import { DARK, LIGHT, T } from './tokens.js';
 
-const PAGES = { home: HomePage, writing: WritingPage, projects: ProjectsPage, about: AboutPage };
+const PAGES = {
+  home: HomePage,
+  writing: WritingPage,
+  projects: ProjectsPage,
+  about: AboutPage,
+};
 const VALID = new Set(Object.keys(PAGES));
 
 function pageFromPath() {
@@ -17,7 +22,11 @@ function pageFromPath() {
 export default function App() {
   const [active, setActivePage] = React.useState(pageFromPath);
   const [isDark, setIsDark] = React.useState(() => {
-    try { return localStorage.getItem('vk_theme') !== 'light'; } catch { return true; }
+    try {
+      return localStorage.getItem('vk_theme') !== 'light';
+    } catch {
+      return true;
+    }
   });
 
   // Sync mutable T before render — all components read from T directly.
@@ -40,7 +49,11 @@ export default function App() {
     const next = !isDark;
     Object.assign(T, next ? DARK : LIGHT);
     setIsDark(next);
-    try { localStorage.setItem('vk_theme', next ? 'dark' : 'light'); } catch {}
+    try {
+      localStorage.setItem('vk_theme', next ? 'dark' : 'light');
+    } catch {
+      /* localStorage unavailable */
+    }
   }
 
   React.useEffect(() => {
@@ -59,9 +72,19 @@ export default function App() {
   return (
     <div
       id="scroll-root"
-      style={{ height: '100vh', overflowY: 'auto', background: T.bg, transition: 'background 250ms' }}
+      style={{
+        height: '100vh',
+        overflowY: 'auto',
+        background: T.bg,
+        transition: 'background 250ms',
+      }}
     >
-      <Nav active={active} setActive={setActive} isDark={isDark} toggleTheme={toggleTheme} />
+      <Nav
+        active={active}
+        setActive={setActive}
+        isDark={isDark}
+        toggleTheme={toggleTheme}
+      />
       <Page setActive={setActive} isDark={isDark} />
     </div>
   );
