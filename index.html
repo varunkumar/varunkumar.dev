@@ -1,53 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Varunkumar Nagarajan</title>
-  <meta name="description" content="Software Engineer · Engineering Leader · Wildlife Photographer." />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 16px; }
-    body {
-      background: #0c0c0f;
-      color: #fafafa;
-      font-family: 'DM Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-    #root { min-height: 100vh; }
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: #0c0c0f; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); }
-    a { color: inherit; text-decoration: none; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varunkumar Nagarajan</title>
+    <meta
+      name="description"
+      content="Software Engineer · Engineering Leader · Wildlife Photographer."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#0c0c0f"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f4f4f5"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="varunkumar" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        background: #0c0c0f;
+        color: #fafafa;
+        font-family: 'DM Sans', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+      }
+      #root {
+        min-height: 100vh;
+      }
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0c0c0f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up { animation: fadeUp 0.45s cubic-bezier(0.4,0,0.2,1) both; }
-    .fade-up-1 { animation-delay: 0.04s; }
-    .fade-up-2 { animation-delay: 0.12s; }
-    .fade-up-3 { animation-delay: 0.22s; }
-    .fade-up-4 { animation-delay: 0.32s; }
-    .fade-up-5 { animation-delay: 0.42s; }
-    .fade-up-6 { animation-delay: 0.52s; }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeUp 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+      }
+      .fade-up-1 {
+        animation-delay: 0.04s;
+      }
+      .fade-up-2 {
+        animation-delay: 0.12s;
+      }
+      .fade-up-3 {
+        animation-delay: 0.22s;
+      }
+      .fade-up-4 {
+        animation-delay: 0.32s;
+      }
+      .fade-up-5 {
+        animation-delay: 0.42s;
+      }
+      .fade-up-6 {
+        animation-delay: 0.52s;
+      }
 
-    @media (max-width: 599px) {
-      .page-pad { padding-left: 20px !important; padding-right: 20px !important; }
-    }
+      @media (max-width: 599px) {
+        .page-pad {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+      }
 
-    .contrib-img { width: 100%; border-radius: 4px; opacity: 0.85; }
-    .contrib-img.dark  { filter: invert(1) hue-rotate(200deg) brightness(0.6) saturate(0.8); }
-    .contrib-img.light { filter: grayscale(0.5) saturate(0.5) brightness(1.05) opacity(0.7); }
-  </style>
-</head>
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+      .contrib-img {
+        width: 100%;
+        border-radius: 4px;
+        opacity: 0.85;
+      }
+      .contrib-img.dark {
+        filter: invert(1) hue-rotate(200deg) brightness(0.6) saturate(0.8);
+      }
+      .contrib-img.light {
+        filter: grayscale(0.5) saturate(0.5) brightness(1.05) opacity(0.7);
+      }
+
+      /* Online/offline indicator */
+      #vk-net-indicator {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(60px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        pointer-events: none;
+        transition:
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.35s;
+        opacity: 0;
+      }
+      #vk-net-indicator.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      #vk-net-indicator.offline {
+        background: rgba(24, 24, 27, 0.92);
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        color: #fca5a5;
+        backdrop-filter: blur(8px);
+      }
+      #vk-net-indicator.online {
+        background: rgba(24, 24, 27, 0.92);
+        border: 1px solid rgba(34, 197, 94, 0.35);
+        color: #86efac;
+        backdrop-filter: blur(8px);
+      }
+      #vk-net-indicator .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      #vk-net-indicator.offline .dot {
+        background: #ef4444;
+      }
+      #vk-net-indicator.online .dot {
+        background: #22c55e;
+        animation: vk-pulse 1.5s ease-out forwards;
+      }
+      @keyframes vk-pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+        }
+        70% {
+          box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        }
+      }
+    </style>
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-R3E62HPYLZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-R3E62HPYLZ');
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="vk-net-indicator" aria-live="polite" aria-atomic="true">
+      <span class="dot"></span>
+      <span class="msg"></span>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function () {
+        var el = document.getElementById('vk-net-indicator');
+        var msg = el.querySelector('.msg');
+        var hideTimer;
+
+        function show(type, text) {
+          clearTimeout(hideTimer);
+          el.className = 'show ' + type;
+          msg.textContent = text;
+          if (type === 'online') {
+            hideTimer = setTimeout(function () {
+              el.className = type;
+            }, 3000);
+          }
+        }
+
+        if (!navigator.onLine) show('offline', 'You are offline');
+
+        window.addEventListener('offline', function () {
+          show('offline', 'You are offline');
+        });
+        window.addEventListener('online', function () {
+          show('online', 'Back online');
+        });
+      })();
+    </script>
+  </body>
 </html>

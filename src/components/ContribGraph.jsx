@@ -21,7 +21,7 @@ const GRID = [
 ];
 
 const W = GRID[0].length * PX; // 16
-const H = GRID.length * PX;    // 14
+const H = GRID.length * PX; // 14
 
 const WALK_CSS = `
   @keyframes ccPos {
@@ -63,12 +63,15 @@ function WalkingMascot() {
       const isArmR = ri === 2 && armRCols.has(ci);
       let anim;
       if (isLegL || isArmR) anim = `ccLegA 0.35s ease-in-out infinite`;
-      else if (isLegR || isArmL) anim = `ccLegA 0.35s ease-in-out infinite 0.175s`;
+      else if (isLegR || isArmL)
+        anim = `ccLegA 0.35s ease-in-out infinite 0.175s`;
       return (
         <rect
           key={`${ri}-${ci}`}
-          x={ci * PX} y={ri * PX}
-          width={PX} height={PX}
+          x={ci * PX}
+          y={ri * PX}
+          width={PX}
+          height={PX}
           fill={color}
           style={anim ? { animation: anim } : undefined}
         />
@@ -81,12 +84,27 @@ function WalkingMascot() {
       <style>{WALK_CSS}</style>
 
       {/* Mobile: static mascot beside the label */}
-      <span className="cc-static" style={{ alignItems: 'center', marginLeft: 8, flexShrink: 0 }}>
-        <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: 'block' }}>
+      <span
+        className="cc-static"
+        style={{ alignItems: 'center', marginLeft: 8, flexShrink: 0 }}
+      >
+        <svg
+          width={W}
+          height={H}
+          viewBox={`0 0 ${W} ${H}`}
+          style={{ display: 'block' }}
+        >
           {GRID.map((row, ri) =>
             row.map((color, ci) =>
               color ? (
-                <rect key={`s-${ri}-${ci}`} x={ci * PX} y={ri * PX} width={PX} height={PX} fill={color} />
+                <rect
+                  key={`s-${ri}-${ci}`}
+                  x={ci * PX}
+                  y={ri * PX}
+                  width={PX}
+                  height={PX}
+                  fill={color}
+                />
               ) : null
             )
           )}
@@ -106,21 +124,29 @@ function WalkingMascot() {
         }}
       >
         {/* position layer */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          width: W,
-          animation: `ccPos ${WALK_DURATION}s linear infinite alternate`,
-        }}>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            width: W,
+            animation: `ccPos ${WALK_DURATION}s linear infinite alternate`,
+          }}
+        >
           {/* flip layer */}
-          <div style={{
-            animation: `ccFlip ${WALK_DURATION * 2}s linear infinite`,
-            transformOrigin: `${W / 2}px ${H / 2}px`,
-          }}>
+          <div
+            style={{
+              animation: `ccFlip ${WALK_DURATION * 2}s linear infinite`,
+              transformOrigin: `${W / 2}px ${H / 2}px`,
+            }}
+          >
             <svg
-              width={W} height={H}
+              width={W}
+              height={H}
               viewBox={`0 0 ${W} ${H}`}
-              style={{ display: 'block', animation: `ccBob 0.35s ease-in-out infinite` }}
+              style={{
+                display: 'block',
+                animation: `ccBob 0.35s ease-in-out infinite`,
+              }}
             >
               {pixels}
             </svg>
@@ -138,12 +164,14 @@ export default function ContribGraph({ isDark }) {
   return (
     <div style={{ marginBottom: 6 }}>
       {/* Header row */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 14,
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 14,
+        }}
+      >
         <BrewingLabel />
         <a
           href="https://github.com/varunkumar"
