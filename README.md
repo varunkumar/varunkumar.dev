@@ -1,21 +1,43 @@
 # varunkumar.dev
 
-Personal site for [Varunkumar Nagarajan](https://varunkumar.dev) — Senior VP of Technology, Engineering Leader, Wildlife Photographer.
+Personal site for [Varunkumar Nagarajan](https://varunkumar.dev) — Senior VP of Technology · Engineering Leader · Wildlife Photographer.
 
-Currently a coming soon page. Deployed to [Cloudflare Pages](https://pages.cloudflare.com), auto-deployed on push to `main`.
+Built with **React + Vite**, deployed to **Cloudflare Pages** (auto-deploy on push to `main`).
+
+## Stack
+
+- React 18 + Vite 6
+- Inline styles — no CSS framework, no CSS-in-JS
+- Google Fonts: Cormorant Garamond · DM Sans · Space Mono · JetBrains Mono
+- Cloudflare Pages for hosting
 
 ## Local Development
 
 ```bash
-cd public
-python3 -m http.server 8080
-# open http://localhost:8080
+npm install
+npm run dev       # http://localhost:5173
 ```
 
-No build step. Cloudflare Pages serves `public/` directly.
+## Build & Deploy
 
-## Stack
+```bash
+npm run build     # outputs to dist/
+npm run preview   # preview production build locally
+```
 
-- Pure HTML/CSS/JS — single file `public/index.html`
-- Google Fonts: Inter + JetBrains Mono
-- Cloudflare Pages for hosting
+Push to `main` → Cloudflare Pages runs `npm run build` and serves `dist/`.
+
+## Code Quality
+
+```bash
+npm run lint          # ESLint
+npm run lint:fix      # ESLint with auto-fix
+npm run format        # Prettier (write)
+npm run format:check  # Prettier (check only)
+```
+
+Run both before committing:
+
+```bash
+npm run lint:fix && npm run format
+```

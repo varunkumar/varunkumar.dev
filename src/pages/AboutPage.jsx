@@ -4,9 +4,7 @@ import { T, mono, sans, serif } from '../tokens.js';
 const CAREER_YEARS = Math.floor(
   (Date.now() - new Date(2008, 5).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
 );
-const LEADER_YEARS = Math.floor(
-  (Date.now() - new Date(2015, 6).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
-);
+
 
 const ABOUT_ITEMS = [
   { k: 'currently', v: 'Senior leadership at Arcesium India Private Limited' },

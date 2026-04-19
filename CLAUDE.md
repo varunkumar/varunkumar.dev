@@ -22,47 +22,75 @@ npm run preview    # preview the production build locally
 
 Cloudflare Pages runs `npm run build` automatically on push to `main`. Output directory is `dist/`.
 
+## Code Quality — run before every commit
+
+```bash
+npm run lint:fix   # ESLint: fix auto-fixable issues
+npm run format     # Prettier: format all files in src/
+```
+
+Or in one shot:
+
+```bash
+npm run lint:fix && npm run format
+```
+
+To check without writing:
+
+```bash
+npm run lint          # ESLint (report only)
+npm run format:check  # Prettier (report only)
+```
+
+ESLint config: `eslint.config.js` (flat config, ESLint 9).  
+Prettier config: `.prettierrc`.
+
 ## Architecture
 
 - **Entry:** `index.html` → `src/main.jsx` → `src/App.jsx`
-- **Routing:** In-memory SPA (no URL changes). `App.jsx` holds `active` page state; `localStorage` persists between sessions.
-- **Theming:** `src/tokens.js` exports `DARK`, `LIGHT`, and a mutable `T` object. `App.jsx` toggles theme by calling `Object.assign(T, isDark ? DARK : LIGHT)` before re-render. Theme is stored in `localStorage('vk_theme')`. Body background is set imperatively to avoid flash-of-wrong-theme.
-- **Inline styles:** All component styles are inline (matching the design prototype). No CSS-in-JS library, no CSS modules. Global animations and resets live in `index.html`.
-- **Static assets:** `public/favicon.svg` — amber sketch portrait. Vite copies `public/` to `dist/` as-is.
+- **Routing:** URL-based SPA using `window.history.pushState`. `App.jsx` holds `active` page state; deep-links (`/writing`, `/projects`, `/about`) work on load. Browser back/forward handled via `popstate`.
+- **Theming:** `src/tokens.js` exports `DARK`, `LIGHT`, and a mutable `T` object. `App.jsx` toggles theme by calling `Object.assign(T, isDark ? DARK : LIGHT)` before re-render. Theme stored in `localStorage('vk_theme')`. Body background set imperatively to avoid flash-of-wrong-theme.
+- **Inline styles:** All component styles are inline. No CSS-in-JS library, no CSS modules. Global animations, resets, and contrib-img filters live in `index.html`.
+- **Static assets:** `public/favicon.svg`. `public/images/` holds wildlife photos. Vite copies `public/` to `dist/` as-is.
 
 ## Fonts
 
-Cormorant Garamond (serif) · DM Sans (sans) · JetBrains Mono (mono) — loaded from Google Fonts in `index.html`.
+Cormorant Garamond (serif) · DM Sans (sans) · Space Mono (mono alt) · JetBrains Mono (mono) — loaded from Google Fonts in `index.html`.
 
 ## Design Tokens
 
-Defined in `src/tokens.js`. Key tokens:
+Defined in `src/tokens.js`. Key tokens (updated April 2026):
 
 | Token | Dark | Light |
 |---|---|---|
-| `bg` | `#0d0d0b` | `#f5f2ec` |
-| `fg` | `#e8e4dc` | `#1a1814` |
-| `fgSec` | `#9a9288` | `#4a4640` |
-| `fgMute` | `#555048` | `#9a9690` |
-| `gold` | `#d4890a` | `#a86a00` |
-| `mono` | `#6a9e68` | `#2d7a2b` |
-| `surface` | `#151512` | `#edeae3` |
-| `border` | `#2a2820` | `#d2cfc7` |
+| `bg` | `#0c0c0f` | `#f4f4f5` |
+| `fg` | `#fafafa` | `#18181b` |
+| `fgSec` | `#d4d4d8` | `#3f3f46` |
+| `fgMute` | `#71717a` | `#71717a` |
+| `gold` | `#36a7f5` (blue) | `#1a7ac4` (blue) |
+| `goldHov` | `#60bcff` | `#2d8fd8` |
+| `mono` | `#22c55e` (green) | `#16a34a` (green) |
+| `surface` | `#18181b` | `#ffffff` |
+| `border` | `rgba(255,255,255,0.08)` | `rgba(0,0,0,0.08)` |
+
+**Accent convention:** `gold`/`goldHov` = blue — used for all actionable links. `mono` = green — used only for decorative terminal elements (`~/`, cursor, about-page keys). Tags and labels use `fgMute` (neutral zinc).
 
 ## Integrations
 
-- **GitHub contributions:** Image from `https://ghchart.rshah.org/{color}/varunkumar` — public, no auth.
+- **GitHub contributions:** Image from `https://ghchart.rshah.org/22c55e/varunkumar` — public, no auth. Fetched fresh on each page load.
 - **GitHub projects:** Public API `https://api.github.com/users/varunkumar/repos?sort=updated&per_page=20` — no auth, 60 req/hr rate limit.
-- **Instagram:** Placeholder grid until an Instagram Basic Display API OAuth token is connected. See `src/data/instagram.js` for placeholder data and `src/components/InstagramSection.jsx` for wiring notes.
+- **Instagram:** Placeholder grid until an Instagram Basic Display API OAuth token is connected. See `src/data/instagram.js` and `src/components/InstagramSection.jsx`.
 
 ## Key Files
 
 | File | Purpose |
 |---|---|
-| `src/tokens.js` | Theme design tokens |
-| `src/App.jsx` | Root: theme toggle, page routing, scroll container |
-| `src/components/Nav.jsx` | Fixed nav with blur, mobile hamburger, theme toggle |
-| `src/pages/HomePage.jsx` | Home: hero, writing preview, contributions, projects, Instagram, photo CTA |
+| `src/tokens.js` | Theme design tokens (`DARK`, `LIGHT`, mutable `T`) |
+| `src/App.jsx` | Root: theme toggle, URL routing, scroll container |
+| `src/components/Nav.jsx` | Fixed 64px nav with blur, mobile hamburger, theme toggle |
+| `src/components/ContribGraph.jsx` | GitHub heatmap + walking pixel-art mascot |
+| `src/components/BrewingLabel.jsx` | Cycling verb label (`// brewing`, `// shipping`, …) |
+| `src/pages/HomePage.jsx` | Hero, writing preview, contributions, projects, Instagram, photo CTA |
 | `src/pages/WritingPage.jsx` | Full writing list |
 | `src/pages/ProjectsPage.jsx` | Full GitHub projects grid |
 | `src/pages/AboutPage.jsx` | About key-value section |
