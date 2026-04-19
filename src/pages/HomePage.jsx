@@ -12,7 +12,7 @@ import useTypewriter from '../hooks/useTypewriter.js';
 import useGitHub from '../hooks/useGitHub.js';
 import { POSTS } from '../data/posts.js';
 
-const BIO_TEXT = "Software engineer · Engineering leader · Builder · Wildlife photographer. I build software and the teams that build software. When I'm not shipping, I'm deep in a forest with a 600mm lens, learning to wait.";
+const BIO_TEXT = "Software engineer · Engineering leader · Hacker · Wildlife photographer. 17+ years building large-scale distributed systems in FinTech. Passionate about AI, cloud computing, and distributed systems.";
 
 function PostRow({ post }) {
   const [hov, setHov] = React.useState(false);

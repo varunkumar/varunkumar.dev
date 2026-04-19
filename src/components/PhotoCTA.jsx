@@ -14,7 +14,7 @@ export default function PhotoCTA() {
           Aganadhiram Creations
         </div>
         <div style={{ fontFamily: sans, fontSize: 13, color: T.fgSec, lineHeight: 1.7, maxWidth: 360, marginBottom: 14 }}>
-          Wildlife art &amp; photography. அகநாதிரம் — the inner heart of nature.
+          Wildlife art &amp; photography. அகனதிறம் — the inner heart of nature.
         </div>
         <a
           href="https://aganadhiram.in"
