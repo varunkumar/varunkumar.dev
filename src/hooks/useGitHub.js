@@ -29,7 +29,8 @@ export default function useGitHub(
 
   useEffect(() => {
     fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
+      { cache: 'no-store' }
     )
       .then((r) => {
         if (!r.ok) throw new Error(r.status);
