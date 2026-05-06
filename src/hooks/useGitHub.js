@@ -37,7 +37,9 @@ export default function useGitHub(username = 'varunkumar') {
         if (PINNED.length > 0) {
           filtered = PINNED.map((name) =>
             data.find((r) => r.name.toLowerCase() === name.toLowerCase())
-          ).filter(Boolean);
+          )
+            .filter(Boolean)
+            .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
         } else {
           filtered = data
             .filter((r) => !r.fork && r.description)
