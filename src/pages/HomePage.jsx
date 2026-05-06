@@ -358,7 +358,7 @@ export default function HomePage({ setActive, isDark }) {
           color: T.fgMute,
         }}
       >
-        <span>© 2025 varunkumar nagarajan</span>
+        <span>© {new Date().getFullYear()} varunkumar nagarajan</span>
         <span>Chennai, India</span>
       </footer>
     </div>
