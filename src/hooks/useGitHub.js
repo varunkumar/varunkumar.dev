@@ -39,7 +39,7 @@ export default function useGitHub(username = 'varunkumar') {
             data.find((r) => r.name.toLowerCase() === name.toLowerCase())
           )
             .filter(Boolean)
-            .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+            .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
         } else {
           filtered = data
             .filter((r) => !r.fork && r.description)
