@@ -3,21 +3,21 @@ import { useState, useEffect } from 'react';
 // Curated list — only these repos appear on the site.
 // Set to [] to fall back to auto-sort (stars + recency, top 6 non-fork repos with descriptions).
 const PINNED = [
+  'lightroom-mcp',
+  'parentsalarm-alert',
+  'baby-track',
+  'camlio',
+  'bring-back-my-workspace',
+  'google-input-tools',
+  'pup-pad',
   'pixdex',
   'terso',
+  'arduino-game-controller',
+  'tamil-wordle',
   'mcp-gitlab',
   'vscode-google-input-tools',
   'github-action-create-env-file',
   'aws-cloudfront-log-viewer',
-  'lightroom-mcp',
-  'google-input-tools',
-  'pup-pad',
-  'parentsalarm-alert',
-  'arduino-game-controller',
-  'baby-track',
-  'camlio',
-  'bring-back-my-workspace',
-  'tamil-wordle',
 ];
 
 export default function useGitHub(
