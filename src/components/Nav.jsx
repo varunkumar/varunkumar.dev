@@ -2,10 +2,13 @@ import React from 'react';
 import { T, mono, sans } from '../tokens.js';
 import Cursor from './Cursor.jsx';
 
-const LINKS = ['writing', 'projects', 'about'];
-const EXT_LINKS = [
-  { label: 'Talks', href: 'https://slides.varunkumar.dev' },
+const NAV_ITEMS = [
+  { label: 'Home', page: 'home' },
+  { label: 'Writing', page: 'writing' },
+  { label: 'Projects', page: 'projects' },
   { label: 'Photography', href: 'https://aganadhiram.in' },
+  { label: 'Talks', href: 'https://slides.varunkumar.dev' },
+  { label: 'About', page: 'about' },
 ];
 
 export default function Nav({ active, setActive, isDark, toggleTheme }) {
@@ -131,55 +134,56 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
           </div>
         ) : (
           <div style={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-            {LINKS.map((k) => (
-              <button
-                key={k}
-                onClick={() => go(k)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  borderRadius: 4,
-                  cursor: 'pointer',
-                  padding: '5px 12px',
-                  fontFamily: sans,
-                  fontSize: 13,
-                  color: active === k ? T.fg : T.fgSec,
-                  fontWeight: active === k ? 500 : 400,
-                  transition: 'color 150ms',
-                }}
-                onMouseEnter={(e) => {
-                  if (active !== k) e.currentTarget.style.color = T.fg;
-                }}
-                onMouseLeave={(e) => {
-                  if (active !== k) e.currentTarget.style.color = T.fgSec;
-                }}
-              >
-                {k.charAt(0).toUpperCase() + k.slice(1)}
-              </button>
-            ))}
-            {EXT_LINKS.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: 'none',
-                  borderRadius: 4,
-                  padding: '5px 12px',
-                  fontFamily: sans,
-                  fontSize: 13,
-                  color: T.fgSec,
-                  fontWeight: 400,
-                  transition: 'color 150ms',
-                  textDecoration: 'none',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = T.fg)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = T.fgSec)}
-              >
-                {label}
-              </a>
-            ))}
+            {NAV_ITEMS.map(({ label, page, href }) =>
+              page ? (
+                <button
+                  key={label}
+                  onClick={() => go(page)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    borderRadius: 4,
+                    cursor: 'pointer',
+                    padding: '5px 12px',
+                    fontFamily: sans,
+                    fontSize: 13,
+                    color: active === page ? T.fg : T.fgSec,
+                    fontWeight: active === page ? 500 : 400,
+                    transition: 'color 150ms',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (active !== page) e.currentTarget.style.color = T.fg;
+                  }}
+                  onMouseLeave={(e) => {
+                    if (active !== page) e.currentTarget.style.color = T.fgSec;
+                  }}
+                >
+                  {label}
+                </button>
+              ) : (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background: 'none',
+                    borderRadius: 4,
+                    padding: '5px 12px',
+                    fontFamily: sans,
+                    fontSize: 13,
+                    color: T.fgSec,
+                    fontWeight: 400,
+                    transition: 'color 150ms',
+                    textDecoration: 'none',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = T.fg)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = T.fgSec)}
+                >
+                  {label}
+                </a>
+              )
+            )}
             <button
               onClick={toggleTheme}
               style={{
@@ -227,48 +231,49 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
               'max-height 280ms cubic-bezier(0.4,0,0.2,1), padding 280ms',
           }}
         >
-          {LINKS.map((k) => (
-            <button
-              key={k}
-              onClick={() => go(k)}
-              style={{
-                display: 'block',
-                width: '100%',
-                textAlign: 'left',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '12px 0',
-                borderBottom: `1px solid ${T.border}`,
-                fontFamily: sans,
-                fontSize: 16,
-                color: active === k ? T.fg : T.fgSec,
-                fontWeight: active === k ? 500 : 400,
-              }}
-            >
-              {k.charAt(0).toUpperCase() + k.slice(1)}
-            </button>
-          ))}
-          {EXT_LINKS.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'block',
-                padding: '12px 0',
-                borderBottom: `1px solid ${T.border}`,
-                fontFamily: sans,
-                fontSize: 16,
-                color: T.fgSec,
-                fontWeight: 400,
-                textDecoration: 'none',
-              }}
-            >
-              {label}
-            </a>
-          ))}
+          {NAV_ITEMS.map(({ label, page, href }) =>
+            page ? (
+              <button
+                key={label}
+                onClick={() => go(page)}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'left',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '12px 0',
+                  borderBottom: `1px solid ${T.border}`,
+                  fontFamily: sans,
+                  fontSize: 16,
+                  color: active === page ? T.fg : T.fgSec,
+                  fontWeight: active === page ? 500 : 400,
+                }}
+              >
+                {label}
+              </button>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  padding: '12px 0',
+                  borderBottom: `1px solid ${T.border}`,
+                  fontFamily: sans,
+                  fontSize: 16,
+                  color: T.fgSec,
+                  fontWeight: 400,
+                  textDecoration: 'none',
+                }}
+              >
+                {label}
+              </a>
+            )
+          )}
         </div>
       )}
     </>
