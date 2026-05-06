@@ -9,6 +9,15 @@ const PINNED = [
   'vscode-google-input-tools',
   'github-action-create-env-file',
   'aws-cloudfront-log-viewer',
+  'lighroom-mcp',
+  'google-input-tools',
+  'pup-pad',
+  'parentsalarm-alert',
+  'arduino-game-controller',
+  'baby-track',
+  'camlio',
+  'bring-back-my-workspace',
+  'tamil-wordle',
 ];
 
 export default function useGitHub(username = 'varunkumar') {
