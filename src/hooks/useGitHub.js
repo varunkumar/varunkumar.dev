@@ -10,14 +10,14 @@ const PINNED = [
   'bring-back-my-workspace',
   'google-input-tools',
   'pup-pad',
+  'create-env-action',
+  'gitlab-mr-mcp',
+  'atlassian-mcp',
+  'cloudfront-log-viewer',
   'pixdex',
   'terso',
   'arduino-game-controller',
   'tamil-wordle',
-  'mcp-gitlab',
-  'vscode-google-input-tools',
-  'github-action-create-env-file',
-  'aws-cloudfront-log-viewer',
 ];
 
 export default function useGitHub(
