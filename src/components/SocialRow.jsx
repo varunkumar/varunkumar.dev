@@ -10,7 +10,14 @@ const SOCIALS = [
 
 export default function SocialRow() {
   return (
-    <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', justifyContent: 'center' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: 7,
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
       {SOCIALS.map(({ label, href, highlight }) => (
         <a
           key={label}
