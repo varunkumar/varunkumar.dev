@@ -1,4 +1,4 @@
-const CACHE = 'vk-v1';
+const CACHE = 'vk-v2';
 
 // Precache the app shell on install
 self.addEventListener('install', (e) => {
