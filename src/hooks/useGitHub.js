@@ -36,7 +36,7 @@ export default function useGitHub(username = 'varunkumar') {
         let filtered;
         if (PINNED.length > 0) {
           filtered = PINNED.map((name) =>
-            data.find((r) => r.name === name)
+            data.find((r) => r.name.toLowerCase() === name.toLowerCase())
           ).filter(Boolean);
         } else {
           filtered = data
