@@ -120,7 +120,7 @@ function TypewriterBio() {
 }
 
 export default function HomePage({ setActive, isDark }) {
-  const { repos, loading } = useGitHub();
+  const { repos, loading } = useGitHub('varunkumar', { sortByActivity: true });
 
   return (
     <div
@@ -128,7 +128,10 @@ export default function HomePage({ setActive, isDark }) {
       style={{ maxWidth: 700, margin: '0 auto', padding: '88px 32px 100px' }}
     >
       {/* Hero */}
-      <section className="fade-up fade-up-1" style={{ marginBottom: 60, textAlign: 'center' }}>
+      <section
+        className="fade-up fade-up-1"
+        style={{ marginBottom: 60, textAlign: 'center' }}
+      >
         <h1
           style={{
             fontFamily: serif,

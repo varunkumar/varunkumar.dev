@@ -20,7 +20,10 @@ const PINNED = [
   'tamil-wordle',
 ];
 
-export default function useGitHub(username = 'varunkumar') {
+export default function useGitHub(
+  username = 'varunkumar',
+  { sortByActivity = false } = {}
+) {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -39,7 +42,9 @@ export default function useGitHub(username = 'varunkumar') {
             data.find((r) => r.name.toLowerCase() === name.toLowerCase())
           )
             .filter(Boolean)
-            .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+            .sort((a, b) =>
+              sortByActivity ? new Date(b.pushed_at) - new Date(a.pushed_at) : 0
+            );
         } else {
           filtered = data
             .filter((r) => !r.fork && r.description)

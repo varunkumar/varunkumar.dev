@@ -56,7 +56,7 @@ export default function ProjectCard({ repo }) {
             </span>
           )}
           <span style={{ fontFamily: mono, fontSize: 9, color: T.fgMute }}>
-            {timeAgo(repo.updated_at)}
+            {timeAgo(repo.pushed_at)}
           </span>
         </div>
       </div>
