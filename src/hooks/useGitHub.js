@@ -9,7 +9,7 @@ const PINNED = [
   'vscode-google-input-tools',
   'github-action-create-env-file',
   'aws-cloudfront-log-viewer',
-  'lighroom-mcp',
+  'lightroom-mcp',
   'google-input-tools',
   'pup-pad',
   'parentsalarm-alert',
