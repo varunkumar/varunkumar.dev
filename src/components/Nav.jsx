@@ -3,6 +3,10 @@ import { T, mono, sans } from '../tokens.js';
 import Cursor from './Cursor.jsx';
 
 const LINKS = ['writing', 'projects', 'about'];
+const EXT_LINKS = [
+  { label: 'Talks', href: 'https://slides.varunkumar.dev' },
+  { label: 'Photography', href: 'https://aganadhiram.in' },
+];
 
 export default function Nav({ active, setActive, isDark, toggleTheme }) {
   const [scrolled, setScrolled] = React.useState(false);
@@ -153,6 +157,29 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
                 {k.charAt(0).toUpperCase() + k.slice(1)}
               </button>
             ))}
+            {EXT_LINKS.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: 'none',
+                  borderRadius: 4,
+                  padding: '5px 12px',
+                  fontFamily: sans,
+                  fontSize: 13,
+                  color: T.fgSec,
+                  fontWeight: 400,
+                  transition: 'color 150ms',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = T.fg)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = T.fgSec)}
+              >
+                {label}
+              </a>
+            ))}
             <button
               onClick={toggleTheme}
               style={{
@@ -221,6 +248,26 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             >
               {k.charAt(0).toUpperCase() + k.slice(1)}
             </button>
+          ))}
+          {EXT_LINKS.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'block',
+                padding: '12px 0',
+                borderBottom: `1px solid ${T.border}`,
+                fontFamily: sans,
+                fontSize: 16,
+                color: T.fgSec,
+                fontWeight: 400,
+                textDecoration: 'none',
+              }}
+            >
+              {label}
+            </a>
           ))}
         </div>
       )}

@@ -97,8 +97,8 @@ function TypewriterBio() {
         color: T.fgSec,
         lineHeight: 1.8,
         maxWidth: 500,
-        marginBottom: 26,
-        minHeight: '6em',
+        margin: '0 auto 26px',
+        minHeight: '3em',
       }}
     >
       {displayed}
@@ -128,7 +128,7 @@ export default function HomePage({ setActive, isDark }) {
       style={{ maxWidth: 700, margin: '0 auto', padding: '88px 32px 100px' }}
     >
       {/* Hero */}
-      <section className="fade-up fade-up-1" style={{ marginBottom: 60 }}>
+      <section className="fade-up fade-up-1" style={{ marginBottom: 60, textAlign: 'center' }}>
         <h1
           style={{
             fontFamily: serif,

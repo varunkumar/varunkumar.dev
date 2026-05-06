@@ -6,13 +6,11 @@ const SOCIALS = [
   { label: 'LinkedIn', href: 'https://linkedin.com/in/varunkumar-nagarajan' },
   { label: 'Instagram', href: 'https://instagram.com/varunkumar' },
   { label: 'YouTube', href: 'https://www.youtube.com/@varunkumarnagarajan' },
-  { label: 'Talks', href: 'https://slides.varunkumar.dev' },
-  { label: 'Photography', href: 'https://aganadhiram.in', highlight: true },
 ];
 
 export default function SocialRow() {
   return (
-    <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', justifyContent: 'center' }}>
       {SOCIALS.map(({ label, href, highlight }) => (
         <a
           key={label}
