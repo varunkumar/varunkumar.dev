@@ -2,3 +2,5 @@ node_modules/
 .wrangler/
 dist/
 .DS_Store
+graphify-out/
+.claude/settings.local.json
