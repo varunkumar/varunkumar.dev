@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // Curated list — only these repos appear on the site.
 // Set to [] to fall back to auto-sort (stars + recency, top 6 non-fork repos with descriptions).
@@ -18,6 +18,7 @@ const PINNED = [
   'terso',
   'arduino-game-controller',
   'tamil-wordle',
+  'claudebox',
 ];
 
 export default function useGitHub(
@@ -60,7 +61,7 @@ export default function useGitHub(
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [username]);
+  }, [username, sortByActivity]);
 
   return { repos, loading };
 }
