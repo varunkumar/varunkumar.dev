@@ -353,13 +353,19 @@ export default function HomePage({ setActive, isDark }) {
           borderTop: `1px solid ${T.border}`,
           display: 'flex',
           justifyContent: 'space-between',
+          alignItems: 'center',
           fontFamily: mono,
           fontSize: 9,
           color: T.fgMute,
         }}
       >
         <span>© {new Date().getFullYear()} varunkumar nagarajan</span>
-        <span>Chennai, India</span>
+        <span style={{ display: 'flex', gap: 16 }}>
+          {import.meta.env.VITE_BUILD_TIME && (
+            <span>built {import.meta.env.VITE_BUILD_TIME.slice(0, 10)}</span>
+          )}
+          <span>Chennai, India</span>
+        </span>
       </footer>
     </div>
   );

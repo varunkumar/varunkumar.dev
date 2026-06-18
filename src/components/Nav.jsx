@@ -225,7 +225,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             backdropFilter: 'blur(16px)',
             borderBottom: `1px solid ${T.border}`,
             padding: menuOpen ? '8px 24px 16px' : '0 24px',
-            maxHeight: menuOpen ? 200 : 0,
+            maxHeight: menuOpen ? 360 : 0,
             overflow: 'hidden',
             transition:
               'max-height 280ms cubic-bezier(0.4,0,0.2,1), padding 280ms',

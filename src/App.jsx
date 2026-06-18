@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav.jsx';
+import UpdateBanner from './components/UpdateBanner.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
@@ -86,6 +87,7 @@ export default function App() {
         toggleTheme={toggleTheme}
       />
       <Page setActive={setActive} isDark={isDark} />
+      <UpdateBanner />
     </div>
   );
 }
