@@ -44,6 +44,10 @@ const WALK_CSS = `
   @media (min-width: 600px) { .cc-walk-track { display: block; } }
   .cc-static { display: none; }
   @media (max-width: 599px) { .cc-static { display: inline-flex; } }
+  @media (prefers-reduced-motion: reduce) {
+    .cc-walk-track { display: none !important; }
+    .cc-static { display: inline-flex !important; }
+  }
 `;
 
 const WALK_DURATION = 5;
@@ -86,12 +90,14 @@ function WalkingMascot() {
       {/* Mobile: static mascot beside the label */}
       <span
         className="cc-static"
+        aria-hidden="true"
         style={{ alignItems: 'center', marginLeft: 8, flexShrink: 0 }}
       >
         <svg
           width={W}
           height={H}
           viewBox={`0 0 ${W} ${H}`}
+          aria-hidden="true"
           style={{ display: 'block' }}
         >
           {GRID.map((row, ri) =>
@@ -143,6 +149,7 @@ function WalkingMascot() {
               width={W}
               height={H}
               viewBox={`0 0 ${W} ${H}`}
+              aria-hidden="true"
               style={{
                 display: 'block',
                 animation: `ccBob 0.35s ease-in-out infinite`,
@@ -179,7 +186,7 @@ export default function ContribGraph({ isDark }) {
           rel="noopener noreferrer"
           style={{
             fontFamily: mono,
-            fontSize: 10,
+            fontSize: 12,
             color: T.gold,
             transition: 'color 150ms',
             flexShrink: 0,

@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         <div
           style={{
             fontFamily: mono,
-            fontSize: 10,
+            fontSize: 12,
             color: T.fgMute,
             marginBottom: 12,
           }}

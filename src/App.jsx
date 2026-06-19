@@ -61,6 +61,12 @@ export default function App() {
     document.body.style.background = T.bg;
     document.body.style.color = T.fg;
     document.body.style.transition = 'background 250ms, color 250ms';
+    document.documentElement.setAttribute(
+      'data-theme',
+      isDark ? 'dark' : 'light'
+    );
+    const meta = document.querySelector('meta[name="color-scheme"]');
+    if (meta) meta.setAttribute('content', isDark ? 'dark' : 'light');
   }, [isDark]);
 
   React.useEffect(() => {

@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import globals from 'globals';
@@ -24,9 +25,11 @@ export default [
     files: ['**/*.{js,jsx}'],
     plugins: {
       'react-hooks': reactHooksPlugin,
+      'jsx-a11y': jsxA11y,
     },
     rules: {
       ...reactHooksPlugin.configs.recommended.rules,
+      ...jsxA11y.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
     },

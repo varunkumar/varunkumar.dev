@@ -42,7 +42,7 @@ export default function AboutPage() {
         <div
           style={{
             fontFamily: mono,
-            fontSize: 10,
+            fontSize: 12,
             color: T.fgMute,
             marginBottom: 12,
           }}

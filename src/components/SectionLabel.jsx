@@ -5,9 +5,9 @@ export default function SectionLabel({ children }) {
     <span
       style={{
         fontFamily: mono,
-        fontSize: 10,
+        fontSize: 12,
         color: T.fgMute,
-        letterSpacing: '0.08em',
+        letterSpacing: '0.06em',
       }}
     >
       {'// '}

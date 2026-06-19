@@ -38,13 +38,17 @@ export default function BrewingLabel() {
     };
   }, []);
 
+  const noMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
     <span
       style={{
         fontFamily: mono,
-        fontSize: 10,
+        fontSize: 12,
         color: T.fgMute,
-        letterSpacing: '0.08em',
+        letterSpacing: '0.06em',
         flexShrink: 0,
       }}
     >
@@ -53,8 +57,8 @@ export default function BrewingLabel() {
         style={{
           display: 'inline-block',
           minWidth: 80,
-          opacity: vis ? 1 : 0,
-          transition: 'opacity 160ms cubic-bezier(0.4,0,0.2,1)',
+          opacity: noMotion || vis ? 1 : 0,
+          transition: noMotion ? 'none' : 'opacity 160ms cubic-bezier(0.4,0,0.2,1)',
         }}
       >
         {VERBS[idx]}

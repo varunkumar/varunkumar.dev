@@ -51,11 +51,11 @@ export default function ProjectCard({ repo }) {
         </span>
         <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
           {repo.stargazers_count > 0 && (
-            <span style={{ fontFamily: mono, fontSize: 9, color: T.fgMute }}>
+            <span style={{ fontFamily: mono, fontSize: 11, color: T.fgMute }}>
               ★ {repo.stargazers_count}
             </span>
           )}
-          <span style={{ fontFamily: mono, fontSize: 9, color: T.fgMute }}>
+          <span style={{ fontFamily: mono, fontSize: 11, color: T.fgMute }}>
             {timeAgo(repo.pushed_at)}
           </span>
         </div>
@@ -75,7 +75,7 @@ export default function ProjectCard({ repo }) {
         <span
           style={{
             fontFamily: mono,
-            fontSize: 9,
+            fontSize: 11,
             color: T.fgMute,
             border: `1px solid ${T.border}`,
             borderRadius: 2,

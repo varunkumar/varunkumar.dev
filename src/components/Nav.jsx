@@ -59,6 +59,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
       >
         <button
           onClick={() => go('home')}
+          aria-label="Go to home"
           style={{
             background: 'none',
             border: 'none',
@@ -69,10 +70,10 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             gap: 5,
           }}
         >
-          <span style={{ fontFamily: mono, fontSize: 13, color: T.mono }}>
+          <span style={{ fontFamily: mono, fontSize: 15, color: T.mono }}>
             ~/
           </span>
-          <span style={{ fontFamily: mono, fontSize: 13, color: T.fg }}>
+          <span style={{ fontFamily: mono, fontSize: 15, color: T.fg }}>
             varunkumar
           </span>
           {active === 'home' && <Cursor />}
@@ -82,12 +83,17 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <button
               onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
               style={{
                 background: 'none',
                 border: `1px solid ${T.border}`,
                 borderRadius: 4,
                 cursor: 'pointer',
-                padding: '4px 8px',
+                minWidth: 44,
+                minHeight: 44,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 fontFamily: mono,
                 fontSize: 11,
                 color: T.fgMute,
@@ -97,16 +103,19 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             </button>
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
               style={{
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                padding: '6px 2px',
+                minWidth: 44,
+                minHeight: 44,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 4,
                 alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               {[0, 1, 2].map((i) => (
@@ -146,7 +155,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
                     cursor: 'pointer',
                     padding: '5px 12px',
                     fontFamily: sans,
-                    fontSize: 13,
+                    fontSize: 14,
                     color: active === page ? T.fg : T.fgSec,
                     fontWeight: active === page ? 500 : 400,
                     transition: 'color 150ms',
@@ -171,7 +180,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
                     borderRadius: 4,
                     padding: '5px 12px',
                     fontFamily: sans,
-                    fontSize: 13,
+                    fontSize: 14,
                     color: T.fgSec,
                     fontWeight: 400,
                     transition: 'color 150ms',
@@ -186,12 +195,17 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             )}
             <button
               onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
               style={{
                 background: 'none',
                 border: `1px solid ${T.border}`,
                 borderRadius: 4,
                 cursor: 'pointer',
-                padding: '4px 8px',
+                minWidth: 44,
+                minHeight: 44,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 marginLeft: 6,
                 fontFamily: mono,
                 fontSize: 11,

@@ -56,7 +56,7 @@ function PostRow({ post }) {
                 key={t}
                 style={{
                   fontFamily: mono,
-                  fontSize: 9,
+                  fontSize: 11,
                   color: T.fgMute,
                   border: `1px solid ${T.border}`,
                   padding: '2px 7px',
@@ -71,7 +71,7 @@ function PostRow({ post }) {
         <div
           style={{
             fontFamily: mono,
-            fontSize: 9,
+            fontSize: 11,
             color: T.fgMute,
             flexShrink: 0,
             textAlign: 'right',
@@ -196,7 +196,7 @@ export default function HomePage({ setActive, isDark }) {
               border: 'none',
               cursor: 'pointer',
               fontFamily: mono,
-              fontSize: 10,
+              fontSize: 12,
               color: T.gold,
               transition: 'color 150ms',
             }}
@@ -217,7 +217,7 @@ export default function HomePage({ setActive, isDark }) {
           style={{
             paddingTop: 12,
             fontFamily: mono,
-            fontSize: 9,
+            fontSize: 11,
             color: T.fgMute,
           }}
         >
@@ -247,7 +247,7 @@ export default function HomePage({ setActive, isDark }) {
             rel="noopener noreferrer"
             style={{
               fontFamily: mono,
-              fontSize: 10,
+              fontSize: 12,
               color: T.gold,
               transition: 'color 150ms',
             }}
@@ -332,9 +332,9 @@ export default function HomePage({ setActive, isDark }) {
               rel="noopener noreferrer"
               style={{
                 fontFamily: mono,
-                fontSize: 11,
+                fontSize: 12,
                 color: T.gold,
-                borderBottom: '1px solid rgba(212,137,10,0.3)',
+                borderBottom: `1px solid ${T.border}`,
                 paddingBottom: 1,
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = T.goldHov)}
@@ -355,7 +355,7 @@ export default function HomePage({ setActive, isDark }) {
           justifyContent: 'space-between',
           alignItems: 'center',
           fontFamily: mono,
-          fontSize: 9,
+          fontSize: 12,
           color: T.fgMute,
         }}
       >

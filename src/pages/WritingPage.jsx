@@ -45,7 +45,7 @@ function PostRow({ post }) {
                 key={t}
                 style={{
                   fontFamily: mono,
-                  fontSize: 9,
+                  fontSize: 11,
                   color: T.fgMute,
                   border: `1px solid ${T.border}`,
                   padding: '2px 7px',
@@ -60,7 +60,7 @@ function PostRow({ post }) {
         <div
           style={{
             fontFamily: mono,
-            fontSize: 9,
+            fontSize: 11,
             color: T.fgMute,
             flexShrink: 0,
             textAlign: 'right',
@@ -86,7 +86,7 @@ export default function WritingPage() {
         <div
           style={{
             fontFamily: mono,
-            fontSize: 10,
+            fontSize: 12,
             color: T.fgMute,
             marginBottom: 12,
           }}
