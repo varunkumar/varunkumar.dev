@@ -70,7 +70,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             gap: 5,
           }}
         >
-          <span style={{ fontFamily: mono, fontSize: 15, color: T.mono }}>
+          <span style={{ fontFamily: mono, fontSize: 15, color: T.gold }}>
             ~/
           </span>
           <span style={{ fontFamily: mono, fontSize: 15, color: T.fg }}>
