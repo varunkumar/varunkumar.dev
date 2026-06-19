@@ -1,4 +1,5 @@
 import { T, mono } from '../tokens.js';
+import { track } from '../analytics.js';
 
 const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/varunkumar' },
@@ -24,6 +25,7 @@ export default function SocialRow() {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => track('social_click', { platform: label.toLowerCase() })}
           style={{
             fontFamily: mono,
             fontSize: 11,

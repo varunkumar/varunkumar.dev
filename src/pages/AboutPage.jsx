@@ -1,5 +1,6 @@
 import Divider from '../components/Divider.jsx';
 import { T, mono, sans, serif } from '../tokens.js';
+import { track } from '../analytics.js';
 
 const CAREER_YEARS = Math.floor(
   (Date.now() - new Date(2008, 5).getTime()) / (1000 * 60 * 60 * 24 * 365.25)
@@ -123,6 +124,7 @@ export default function AboutPage() {
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = T.goldHov)}
             onMouseLeave={(e) => (e.currentTarget.style.color = T.gold)}
+            onClick={() => track('about_link_click', { link: 'snake_squad' })}
           >
             Snake Squad
           </a>

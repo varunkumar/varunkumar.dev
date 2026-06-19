@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
 import WritingPage from './pages/WritingPage.jsx';
 import { DARK, LIGHT, T } from './tokens.js';
+import { track, trackPageView } from './analytics.js';
 
 const PAGES = {
   home: HomePage,
@@ -37,6 +38,7 @@ export default function App() {
     const path = page === 'home' ? '/' : `/${page}`;
     window.history.pushState({ page }, '', path);
     setActivePage(page);
+    trackPageView(path);
   }
 
   // Handle browser back/forward
@@ -50,6 +52,7 @@ export default function App() {
     const next = !isDark;
     Object.assign(T, next ? DARK : LIGHT);
     setIsDark(next);
+    track('theme_toggle', { theme: next ? 'dark' : 'light' });
     try {
       localStorage.setItem('vk_theme', next ? 'dark' : 'light');
     } catch {
