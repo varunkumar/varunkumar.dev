@@ -4,7 +4,7 @@ import Cursor from './Cursor.jsx';
 
 const NAV_ITEMS = [
   { label: 'Home', page: 'home' },
-  { label: 'Writing', href: '/writing' },
+  { label: 'Writing', href: '/writing/', internal: true },
   { label: 'Projects', page: 'projects' },
   { label: 'Photography', href: 'https://aganadhiram.in' },
   { label: 'Talks', href: 'https://slides.varunkumar.dev' },
@@ -145,7 +145,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
           </div>
         ) : (
           <div style={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-            {NAV_ITEMS.map(({ label, page, href }) =>
+            {NAV_ITEMS.map(({ label, page, href, internal }) =>
               page ? (
                 <button
                   key={label}
@@ -175,8 +175,10 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(!internal && {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  })}
                   style={{
                     background: 'none',
                     borderRadius: 4,
@@ -249,7 +251,7 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
               'max-height 280ms cubic-bezier(0.4,0,0.2,1), padding 280ms',
           }}
         >
-          {NAV_ITEMS.map(({ label, page, href }) =>
+          {NAV_ITEMS.map(({ label, page, href, internal }) =>
             page ? (
               <button
                 key={label}
@@ -275,8 +277,10 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
               <a
                 key={label}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(!internal && {
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                })}
                 style={{
                   display: 'block',
                   padding: '12px 0',

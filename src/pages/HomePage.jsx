@@ -190,7 +190,7 @@ export default function HomePage({ isDark }) {
         >
           <SectionLabel>recent writing</SectionLabel>
           <a
-            href="/writing"
+            href="/writing/"
             style={{
               fontFamily: mono,
               fontSize: 12,
