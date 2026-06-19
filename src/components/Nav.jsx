@@ -4,7 +4,7 @@ import Cursor from './Cursor.jsx';
 
 const NAV_ITEMS = [
   { label: 'Home', page: 'home' },
-  { label: 'Writing', page: 'writing' },
+  { label: 'Writing', href: '/writing' },
   { label: 'Projects', page: 'projects' },
   { label: 'Photography', href: 'https://aganadhiram.in' },
   { label: 'Talks', href: 'https://slides.varunkumar.dev' },
@@ -83,7 +83,9 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <button
               onClick={toggleTheme}
-              aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+              aria-label={
+                isDark ? 'Switch to light theme' : 'Switch to dark theme'
+              }
               style={{
                 background: 'none',
                 border: `1px solid ${T.border}`,
@@ -195,7 +197,9 @@ export default function Nav({ active, setActive, isDark, toggleTheme }) {
             )}
             <button
               onClick={toggleTheme}
-              aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+              aria-label={
+                isDark ? 'Switch to light theme' : 'Switch to dark theme'
+              }
               style={{
                 background: 'none',
                 border: `1px solid ${T.border}`,

@@ -4,13 +4,11 @@ import UpdateBanner from './components/UpdateBanner.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
-import WritingPage from './pages/WritingPage.jsx';
 import { DARK, LIGHT, T } from './tokens.js';
 import { track, trackPageView } from './analytics.js';
 
 const PAGES = {
   home: HomePage,
-  writing: WritingPage,
   projects: ProjectsPage,
   about: AboutPage,
 };

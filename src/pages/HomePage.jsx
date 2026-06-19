@@ -119,7 +119,7 @@ function TypewriterBio() {
   );
 }
 
-export default function HomePage({ setActive, isDark }) {
+export default function HomePage({ isDark }) {
   const { repos: allRepos, loading } = useGitHub('varunkumar', {
     sortByActivity: true,
   });
@@ -189,22 +189,20 @@ export default function HomePage({ setActive, isDark }) {
           }}
         >
           <SectionLabel>recent writing</SectionLabel>
-          <button
-            onClick={() => setActive('writing')}
+          <a
+            href="/writing"
             style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
               fontFamily: mono,
               fontSize: 12,
               color: T.gold,
               transition: 'color 150ms',
+              textDecoration: 'none',
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = T.goldHov)}
             onMouseLeave={(e) => (e.currentTarget.style.color = T.gold)}
           >
             view all →
-          </button>
+          </a>
         </div>
         <Divider />
         {POSTS.map((p, i) => (
