@@ -4,7 +4,7 @@ import { track } from '../analytics.js';
 const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/varunkumar' },
   { label: 'Twitter', href: 'https://twitter.com/varunkumar' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/varunkumar-nagarajan' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/varunkumar.nagarajan' },
   { label: 'Instagram', href: 'https://instagram.com/varunkumar' },
   { label: 'YouTube', href: 'https://www.youtube.com/@varunkumarnagarajan' },
 ];
@@ -25,7 +25,9 @@ export default function SocialRow() {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => track('social_click', { platform: label.toLowerCase() })}
+          onClick={() =>
+            track('social_click', { platform: label.toLowerCase() })
+          }
           style={{
             fontFamily: mono,
             fontSize: 11,
