@@ -53,8 +53,10 @@ function PostRow({ post }) {
           </p>
           <div style={{ display: 'flex', gap: 6 }}>
             {post.tags.map((t) => (
-              <span
+              <a
                 key={t}
+                href={`/writing/tags/${t}/`}
+                onClick={(e) => e.stopPropagation()}
                 style={{
                   fontFamily: mono,
                   fontSize: 11,
@@ -62,10 +64,11 @@ function PostRow({ post }) {
                   border: `1px solid ${T.border}`,
                   padding: '2px 7px',
                   borderRadius: 2,
+                  textDecoration: 'none',
                 }}
               >
                 {t}
-              </span>
+              </a>
             ))}
           </div>
         </div>
@@ -78,6 +81,7 @@ function PostRow({ post }) {
             textAlign: 'right',
             lineHeight: 1.9,
           }}
+          title={post.rawDate}
         >
           {post.date}
         </div>
