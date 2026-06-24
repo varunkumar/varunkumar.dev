@@ -1,8 +1,6 @@
-const CACHE = 'vk-v2';
+const CACHE = 'vk-v3';
 
-// Precache the app shell on install
-self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['/'])));
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
@@ -40,8 +38,28 @@ self.addEventListener('fetch', (e) => {
     return;
   }
 
-  // Cache-first for same-origin assets (HTML, JS, CSS, images)
-  // Falls back to network and populates the cache on miss
+  // Network-first for HTML — index.html changes on every deploy and must
+  // never be served stale (stale HTML references old hashed asset filenames
+  // that no longer exist, causing a blank page with no recovery path on iOS PWA).
+  const isHTML =
+    request.headers.get('accept')?.includes('text/html') ||
+    url.pathname === '/' ||
+    url.pathname.endsWith('.html');
+
+  if (isHTML) {
+    e.respondWith(
+      fetch(request)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE).then((c) => c.put(request, clone));
+          return res;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Cache-first for hashed JS/CSS/images — content-addressed so safe to cache forever
   e.respondWith(
     caches.match(request).then((cached) => {
       const networkFetch = fetch(request).then((res) => {
