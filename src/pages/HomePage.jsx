@@ -7,8 +7,8 @@ import PhotoCTA from '../components/PhotoCTA.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import SectionLabel from '../components/SectionLabel.jsx';
 import SocialRow from '../components/SocialRow.jsx';
-import { POSTS } from '../data/posts.js';
 import useGitHub from '../hooks/useGitHub.js';
+import usePosts from '../hooks/usePosts.js';
 import useTypewriter from '../hooks/useTypewriter.js';
 import { T, mono, sans, serif } from '../tokens.js';
 
@@ -17,10 +17,11 @@ const BIO_TEXT = `Software engineer · Engineering leader · Hacker · Wildlife 
 function PostRow({ post }) {
   const [hov, setHov] = React.useState(false);
   return (
-    <div
+    <a
+      href={post.url}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      style={{ padding: '18px 0', cursor: 'pointer' }}
+      style={{ display: 'block', padding: '18px 0', textDecoration: 'none' }}
     >
       <div
         style={{ display: 'flex', justifyContent: 'space-between', gap: 24 }}
@@ -79,11 +80,9 @@ function PostRow({ post }) {
           }}
         >
           {post.date}
-          <br />
-          {post.mins}m read
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -124,6 +123,7 @@ export default function HomePage({ isDark }) {
     sortByActivity: true,
   });
   const repos = allRepos.slice(0, 6);
+  const { posts } = usePosts();
 
   return (
     <div
@@ -205,7 +205,7 @@ export default function HomePage({ isDark }) {
           </a>
         </div>
         <Divider />
-        {POSTS.map((p, i) => (
+        {posts.slice(0, 3).map((p, i) => (
           <React.Fragment key={i}>
             <PostRow post={p} />
             <Divider />

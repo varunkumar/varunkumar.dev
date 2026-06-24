@@ -1,15 +1,16 @@
 import React from 'react';
 import Divider from '../components/Divider.jsx';
-import { POSTS } from '../data/posts.js';
+import usePosts from '../hooks/usePosts.js';
 import { T, mono, sans, serif } from '../tokens.js';
 
 function PostRow({ post }) {
   const [hov, setHov] = React.useState(false);
   return (
-    <div
+    <a
+      href={post.url}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      style={{ padding: '18px 0', cursor: 'pointer' }}
+      style={{ display: 'block', padding: '18px 0', textDecoration: 'none' }}
     >
       <div
         style={{ display: 'flex', justifyContent: 'space-between', gap: 24 }}
@@ -68,15 +69,14 @@ function PostRow({ post }) {
           }}
         >
           {post.date}
-          <br />
-          {post.mins}m read
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
 export default function WritingPage() {
+  const { posts } = usePosts();
   return (
     <div
       className="page-pad"
@@ -121,7 +121,7 @@ export default function WritingPage() {
         </p>
       </div>
       <Divider />
-      {POSTS.map((p, i) => (
+      {posts.map((p, i) => (
         <React.Fragment key={i}>
           <div className={`fade-up fade-up-${i + 2}`}>
             <PostRow post={p} />
