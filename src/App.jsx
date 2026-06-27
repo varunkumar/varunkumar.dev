@@ -75,6 +75,16 @@ export default function App() {
     if (el) el.scrollTop = 0;
   }, [active]);
 
+  React.useEffect(() => {
+    const PAGE_TITLES = {
+      home: 'Varunkumar Nagarajan',
+      writing: 'Writing - varunkumar.dev',
+      projects: 'Projects - varunkumar.dev',
+      about: 'About - varunkumar.dev',
+    };
+    document.title = PAGE_TITLES[active] ?? 'Varunkumar Nagarajan';
+  }, [active]);
+
   const Page = PAGES[active] || HomePage;
 
   return (
