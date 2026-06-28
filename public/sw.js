@@ -1,4 +1,4 @@
-const CACHE = 'vk-v3';
+const CACHE = 'vk-v4';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
@@ -47,6 +47,20 @@ self.addEventListener('fetch', (e) => {
     url.pathname.endsWith('.html');
 
   if (isHTML) {
+    e.respondWith(
+      fetch(request)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE).then((c) => c.put(request, clone));
+          return res;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Network-first for dynamic JSON feeds (feed.json changes on every publish)
+  if (url.pathname.endsWith('feed.json')) {
     e.respondWith(
       fetch(request)
         .then((res) => {
