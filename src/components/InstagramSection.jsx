@@ -24,11 +24,11 @@ export default function InstagramSection() {
           style={{
             fontFamily: mono,
             fontSize: 10,
-            color: T.mono,
+            color: T.gold,
             transition: 'color 150ms',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = T.gold)}
-          onMouseLeave={(e) => (e.currentTarget.style.color = T.mono)}
+          onMouseEnter={(e) => (e.currentTarget.style.color = T.goldHov)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = T.gold)}
         >
           view profile →
         </a>
