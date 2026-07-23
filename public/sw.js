@@ -1,4 +1,4 @@
-const CACHE = 'vk-v4';
+const CACHE = 'vk-v5';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
@@ -23,6 +23,15 @@ self.addEventListener('fetch', (e) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
+
+  // Never cache the blog's API routes — comments/reactions must always be
+  // fresh, and this worker's scope ('/') covers /writing/* too since the
+  // blog's own more specific service worker isn't guaranteed to have taken
+  // over yet (e.g. the first visit to /writing/ from this PWA).
+  if (url.pathname.startsWith('/writing/api/')) {
+    e.respondWith(fetch(request));
+    return;
+  }
 
   // Network-first for external APIs (GitHub, ghchart) — cache as fallback
   if (url.origin !== self.location.origin) {
