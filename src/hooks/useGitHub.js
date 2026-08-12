@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 // Curated list — only these repos appear on the site.
 // Set to [] to fall back to auto-sort (stars + recency, top 6 non-fork repos with descriptions).
 const PINNED = [
+  'zero',
   'mascot-kit',
   'claude-sync',
   'lightroom-mcp',
