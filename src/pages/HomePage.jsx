@@ -215,16 +215,6 @@ export default function HomePage({ isDark }) {
             <Divider />
           </React.Fragment>
         ))}
-        <div
-          style={{
-            paddingTop: 12,
-            fontFamily: mono,
-            fontSize: 11,
-            color: T.fgMute,
-          }}
-        >
-          blog.varunkumar.dev
-        </div>
       </section>
 
       {/* GitHub contributions */}

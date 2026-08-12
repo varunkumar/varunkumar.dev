@@ -117,11 +117,7 @@ export default function WritingPage() {
             lineHeight: 1.7,
           }}
         >
-          Engineering, leadership, craft, and field reports from the forest.{' '}
-          Blog at{' '}
-          <a href="https://blog.varunkumar.dev" style={{ color: T.gold }}>
-            blog.varunkumar.dev
-          </a>{' '}
+          Engineering, leadership, craft, and field reports from the forest.
         </p>
       </div>
       <Divider />

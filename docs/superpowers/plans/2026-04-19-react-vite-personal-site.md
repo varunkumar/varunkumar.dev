@@ -1207,9 +1207,6 @@ export default function HomePage({ setActive, isDark }) {
             <Divider />
           </React.Fragment>
         ))}
-        <div style={{ paddingTop: 12, fontFamily: mono, fontSize: 9, color: T.fgMute }}>
-          blog.varunkumar.dev — coming soon
-        </div>
       </section>
 
       {/* GitHub contributions */}
@@ -1295,8 +1292,7 @@ export default function WritingPage() {
           Things I think about
         </h1>
         <p style={{ fontFamily: sans, fontSize: 14, color: T.fgSec, lineHeight: 1.7 }}>
-          Engineering, leadership, craft, and field reports from the forest.{' '}
-          Blog at <a href="https://blog.varunkumar.dev" style={{ color: T.gold }}>blog.varunkumar.dev</a> — coming soon.
+          Engineering, leadership, craft, and field reports from the forest.
         </p>
       </div>
       <Divider />
@@ -1566,6 +1562,3 @@ git commit -m "chore: add .gitignore for node_modules and dist"
 4. Fetch: `https://graph.instagram.com/me/media?fields=id,media_url,thumbnail_url,permalink,media_type&access_token=TOKEN`
 5. Replace `IG_PLACEHOLDERS` in `src/data/instagram.js` with the live API response and update `InstagramSection.jsx` to render real `<img>` tags.
 6. Store the token in a Cloudflare Pages environment variable (not in source) — proxy the API call through a Cloudflare Function/Worker to keep the token server-side.
-
-### Blog RSS (future)
-Once `blog.varunkumar.dev` is live, replace `src/data/posts.js` with a fetch from the RSS feed (e.g., `https://blog.varunkumar.dev/rss.xml`), parsed client-side or via a Cloudflare Worker.

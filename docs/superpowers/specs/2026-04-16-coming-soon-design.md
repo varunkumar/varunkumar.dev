@@ -29,7 +29,6 @@ Short, confident: _"Something's coming."_ or _"Building something new."_
 | Twitter/X | @varunkumar |
 | Instagram | @varunkumar (wildlife photography) |
 | LinkedIn | linkedin.com/in/varunkumar.nagarajan |
-| Blog | blog.varunkumar.dev |
 
 ---
 
