@@ -12,6 +12,7 @@ const ROUTES = [
     title: 'Projects - varunkumar.dev',
     heading: "Things I've built",
     marker: '// projects',
+    project: 'zero',
   },
   {
     path: '/about',
@@ -35,6 +36,11 @@ test.describe('route smoke', () => {
       await expect(
         page.getByRole('button', { name: 'Go to home' })
       ).toBeVisible();
+      if (route.project) {
+        await expect(
+          page.getByRole('link', { name: route.project })
+        ).toBeVisible();
+      }
     });
   }
 

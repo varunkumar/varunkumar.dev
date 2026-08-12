@@ -123,7 +123,7 @@ function TypewriterBio() {
 }
 
 export default function HomePage({ isDark }) {
-  const { repos: allRepos, loading } = useGitHub('varunkumar', {
+  const { repos: allRepos, loading } = useGitHub({
     sortByActivity: true,
   });
   const repos = allRepos.slice(0, 6);

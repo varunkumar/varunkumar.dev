@@ -1,70 +1,33 @@
 import { useEffect, useState } from 'react';
+import { PINNED } from '../data/pinned.js';
+import { pickProjects } from '../github/selectPinned.js';
 
-// Curated list — only these repos appear on the site.
-// Set to [] to fall back to auto-sort (stars + recency, top 6 non-fork repos with descriptions).
-const PINNED = [
-  'zero',
-  'mascot-kit',
-  'claude-sync',
-  'lightroom-mcp',
-  'parentsalarm-alert',
-  'baby-track',
-  'camlio',
-  'bring-back-my-workspace',
-  'google-input-tools',
-  'pup-pad',
-  'create-env-action',
-  'gitlab-mr-mcp',
-  'atlassian-mcp',
-  'cloudfront-log-viewer',
-  'pixdex',
-  'terso',
-  'arduino-game-controller',
-  'tamil-wordle',
-  'claudebox',
-];
+const GITHUB_REPOS =
+  'https://api.github.com/users/varunkumar/repos?sort=updated&per_page=100';
 
-export default function useGitHub(
-  username = 'varunkumar',
-  { sortByActivity = false } = {}
-) {
+function readJson(url) {
+  return fetch(url)
+    .then((r) => (r.ok ? r.json() : null))
+    .catch(() => null);
+}
+
+export default function useGitHub({ sortByActivity = false } = {}) {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
-      { cache: 'no-store' }
-    )
-      .then((r) => {
-        if (!r.ok) throw new Error(r.status);
-        return r.json();
-      })
-      .then((data) => {
-        let filtered;
-        if (PINNED.length > 0) {
-          filtered = PINNED.map((name) =>
-            data.find((r) => r.name.toLowerCase() === name.toLowerCase())
-          )
-            .filter(Boolean)
-            .sort((a, b) =>
-              sortByActivity ? new Date(b.pushed_at) - new Date(a.pushed_at) : 0
-            );
-        } else {
-          filtered = data
-            .filter((r) => !r.fork && r.description)
-            .sort(
-              (a, b) =>
-                b.stargazers_count - a.stargazers_count ||
-                new Date(b.updated_at) - new Date(a.updated_at)
-            )
-            .slice(0, 6);
-        }
-        setRepos(filtered);
+    let cancelled = false;
+    Promise.all([readJson(GITHUB_REPOS), readJson('/projects.json')]).then(
+      ([live, snapshot]) => {
+        if (cancelled) return;
+        setRepos(pickProjects(live, snapshot, PINNED, { sortByActivity }));
         setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [username, sortByActivity]);
+      }
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [sortByActivity]);
 
   return { repos, loading };
 }

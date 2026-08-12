@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1322886119,
+    "name": "zero",
+    "html_url": "https://github.com/varunkumar/zero",
+    "description": "Your local AI workspace.",
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "pushed_at": "2026-08-09T17:00:43Z"
+  },
+  {
+    "id": 1312136636,
+    "name": "mascot-kit",
+    "html_url": "https://github.com/varunkumar/mascot-kit",
+    "description": "Local-first toolkit for generating visually consistent mascot collections.",
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2026-07-25T17:47:55Z"
+  },
+  {
+    "id": 1289260616,
+    "name": "claude-sync",
+    "html_url": "https://github.com/varunkumar/claude-sync",
+    "description": "Syncs Claude settings and memory",
+    "language": "Python",
+    "stargazers_count": 1,
+    "pushed_at": "2026-07-08T10:10:06Z"
+  },
+  {
+    "id": 1213240278,
+    "name": "lightroom-mcp",
+    "html_url": "https://github.com/varunkumar/lightroom-mcp",
+    "description": "MCP server for Lightroom Classic",
+    "language": "Python",
+    "stargazers_count": 4,
+    "pushed_at": "2026-04-29T07:03:06Z"
+  },
+  {
+    "id": 373391669,
+    "name": "parentsalarm-alert",
+    "html_url": "https://github.com/varunkumar/parentsalarm-alert",
+    "description": "Enable notifications from ParentsAlarm/SchoolCanvas app",
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "pushed_at": "2025-12-19T14:31:35Z"
+  },
+  {
+    "id": 47739388,
+    "name": "baby-track",
+    "html_url": "https://github.com/varunkumar/baby-track",
+    "description": "Hack for tracking baby data using Raspberry Pi and AWS IoT",
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "pushed_at": "2024-12-05T23:06:20Z"
+  },
+  {
+    "id": 209902158,
+    "name": "camlio",
+    "html_url": "https://github.com/varunkumar/camlio",
+    "description": "Experiments with real-time video processing",
+    "language": "JavaScript",
+    "stargazers_count": 6,
+    "pushed_at": "2022-01-25T04:27:59Z"
+  },
+  {
+    "id": 318703356,
+    "name": "bring-back-my-workspace",
+    "html_url": "https://github.com/varunkumar/bring-back-my-workspace",
+    "description": "Experiments with real-time audio processing in an effort to bring back our workspaces",
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "pushed_at": "2021-09-03T04:19:32Z"
+  },
+  {
+    "id": 102664387,
+    "name": "google-input-tools",
+    "html_url": "https://github.com/varunkumar/google-input-tools",
+    "description": "VSCode extension for Google Input Tools (Transliteration)",
+    "language": "JavaScript",
+    "stargazers_count": 19,
+    "pushed_at": "2024-08-30T10:48:24Z"
+  },
+  {
+    "id": 368045666,
+    "name": "pup-pad",
+    "html_url": "https://github.com/varunkumar/pup-pad",
+    "description": "Adhiyan's Pup pad",
+    "language": "AppleScript",
+    "stargazers_count": 1,
+    "pushed_at": "2021-05-22T06:02:16Z"
+  },
+  {
+    "id": 575051830,
+    "name": "create-env-action",
+    "html_url": "https://github.com/varunkumar/create-env-action",
+    "description": "Creates .env by taking environment keys from GitHub secrets",
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "pushed_at": "2026-08-05T15:04:17Z"
+  },
+  {
+    "id": 999293304,
+    "name": "gitlab-mr-mcp",
+    "html_url": "https://github.com/varunkumar/gitlab-mr-mcp",
+    "description": "MCP server that provides read-only access to GitLab Merge Requests.",
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2025-06-12T01:58:10Z"
+  },
+  {
+    "id": 1000315187,
+    "name": "atlassian-mcp",
+    "html_url": "https://github.com/varunkumar/atlassian-mcp",
+    "description": "MCP server that provides read-only access to Atlassian products (Confluence and Jira)",
+    "language": "Python",
+    "stargazers_count": 1,
+    "pushed_at": "2025-06-18T02:10:29Z"
+  },
+  {
+    "id": 108893187,
+    "name": "cloudfront-log-viewer",
+    "html_url": "https://github.com/varunkumar/cloudfront-log-viewer",
+    "description": "Import CloudFront logs into a local Elasticsearch instance and visualize them using Kibana",
+    "language": "Python",
+    "stargazers_count": 1,
+    "pushed_at": "2020-08-19T18:36:03Z"
+  },
+  {
+    "id": 936556527,
+    "name": "pixdex",
+    "html_url": "https://github.com/varunkumar/pixdex",
+    "description": "AI-enabled photo indexer",
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "pushed_at": "2025-04-25T09:43:37Z"
+  },
+  {
+    "id": 998012732,
+    "name": "Terso",
+    "html_url": "https://github.com/varunkumar/Terso",
+    "description": "Terso is a comprehensive offline tool for summarizing Microsoft Word documents and PDFs using local AI models",
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2025-06-07T19:00:06Z"
+  },
+  {
+    "id": 2855556,
+    "name": "arduino-game-controller",
+    "html_url": "https://github.com/varunkumar/arduino-game-controller",
+    "description": "Arduino based game controller for HTML5 Helicopter game. The controller is connected to an Android device which routes the data to the game played on the browser. The communication with the browser happens over web sockets. Powered by Node.js and Socket.io.",
+    "language": "Java",
+    "stargazers_count": 2,
+    "pushed_at": "2024-12-05T23:09:42Z"
+  },
+  {
+    "id": 446667730,
+    "name": "tamil-wordle",
+    "html_url": "https://github.com/varunkumar/tamil-wordle",
+    "description": "Tamil Wordle",
+    "language": "Go",
+    "stargazers_count": 0,
+    "pushed_at": "2022-01-11T19:16:27Z"
+  },
+  {
+    "id": 1235870162,
+    "name": "claudebox",
+    "html_url": "https://github.com/varunkumar/claudebox",
+    "description": "Claude in a box",
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2026-05-18T04:44:20Z"
+  }
+]

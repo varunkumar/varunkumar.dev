@@ -59,6 +59,19 @@ export default function ProjectsPage() {
           fetching
           <Cursor />
         </div>
+      ) : repos.length === 0 ? (
+        <p style={{ fontFamily: sans, fontSize: 14, color: T.fgMute }}>
+          Could not load projects right now.{' '}
+          <a
+            href="https://github.com/varunkumar?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: T.gold }}
+          >
+            See them on GitHub
+          </a>
+          .
+        </p>
       ) : (
         <div
           className="fade-up fade-up-2"

@@ -1,4 +1,4 @@
-const CACHE = 'vk-v5';
+const CACHE = 'vk-v6';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
@@ -38,8 +38,10 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(
       fetch(request)
         .then((res) => {
-          const clone = res.clone();
-          caches.open(CACHE).then((c) => c.put(request, clone));
+          if (res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE).then((c) => c.put(request, clone));
+          }
           return res;
         })
         .catch(() => caches.match(request))
@@ -68,8 +70,8 @@ self.addEventListener('fetch', (e) => {
     return;
   }
 
-  // Network-first for dynamic JSON feeds (feed.json changes on every publish)
-  if (url.pathname.endsWith('feed.json')) {
+  // Network-first for JSON written at build or publish time
+  if (url.pathname.endsWith('.json')) {
     e.respondWith(
       fetch(request)
         .then((res) => {

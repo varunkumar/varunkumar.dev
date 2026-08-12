@@ -16,6 +16,14 @@ export default [
     },
   },
   {
+    files: ['public/sw.js'],
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+      },
+    },
+  },
+  {
     ...reactPlugin.configs.flat.recommended,
     files: ['src/**/*.{js,jsx}'],
     languageOptions: {
