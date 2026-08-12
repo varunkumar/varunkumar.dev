@@ -5,16 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm test && npm run test:e2e",
+    "build:vite": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "format": "prettier --write src",
-    "format:check": "prettier --check src",
+    "lint": "eslint src e2e",
+    "lint:fix": "eslint src e2e --fix",
+    "format": "prettier --write src e2e",
+    "format:check": "prettier --check src e2e",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npx playwright install chromium && playwright test",
     "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+    "pre-commit": "npx lint-staged && npm run build"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs}": [
@@ -39,6 +43,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.62.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.4",
     "@vitejs/plugin-react": "^6.0.2",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.1.8",
@@ -47,10 +55,12 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.5.0",
+    "jsdom": "^29.1.1",
     "lint-staged": "^15.5.2",
     "prettier": "^3.8.3",
     "simple-git-hooks": "^2.13.0",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "vitest": "^4.1.10"
   },
   "allowScripts": {
     "simple-git-hooks@2.13.1": true

@@ -8,8 +8,16 @@ import globals from 'globals';
 export default [
   js.configs.recommended,
   {
+    files: ['*.config.js', 'e2e/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     ...reactPlugin.configs.flat.recommended,
-    files: ['**/*.{js,jsx}'],
+    files: ['src/**/*.{js,jsx}'],
     languageOptions: {
       ...reactPlugin.configs.flat.recommended.languageOptions,
       globals: {
@@ -22,7 +30,7 @@ export default [
     },
   },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['src/**/*.{js,jsx}'],
     plugins: {
       'react-hooks': reactHooksPlugin,
       'jsx-a11y': jsxA11y,

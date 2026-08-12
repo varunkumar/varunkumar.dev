@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
 
-function formatDate(iso) {
-  const diff = (new Date(iso) - Date.now()) / 1000;
+export function formatDate(iso, now = Date.now()) {
+  const diff = (new Date(iso) - now) / 1000;
   const abs = Math.abs(diff);
   if (abs < 3600) return rtf.format(Math.round(diff / 60), 'minute');
   if (abs < 86400) return rtf.format(Math.round(diff / 3600), 'hour');

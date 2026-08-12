@@ -6,18 +6,13 @@ import HomePage from './pages/HomePage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
 import { DARK, LIGHT, T } from './tokens.js';
 import { track, trackPageView } from './analytics.js';
+import { pageFromPath } from './routing.js';
 
 const PAGES = {
   home: HomePage,
   projects: ProjectsPage,
   about: AboutPage,
 };
-const VALID = new Set(Object.keys(PAGES));
-
-function pageFromPath() {
-  const seg = window.location.pathname.replace(/^\//, '') || 'home';
-  return VALID.has(seg) ? seg : 'home';
-}
 
 export default function App() {
   const [active, setActivePage] = React.useState(pageFromPath);
