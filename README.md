@@ -1,12 +1,12 @@
 # varunkumar.dev
 
-[![Cloudflare Pages](https://img.shields.io/github/check-runs/varunkumar/varunkumar.dev/main?logo=cloudflare&logoColor=white&label=Cloudflare%20Pages)](https://github.com/varunkumar/varunkumar.dev/commits/main)
+[![Cloudflare Pages](https://img.shields.io/github/check-runs/varunkumar/varunkumar.dev/main?logo=cloudflare&logoColor=white&label=Cloudflare%20Pages)](https://dash.cloudflare.com/0d39754e3ae6404682a9bd4980eb399a/workers/services/view/website/production/builds)
 
 Personal site for [Varunkumar Nagarajan](https://varunkumar.dev) — Senior VP of Technology · Engineering Leader · Wildlife Photographer.
 
 Built with **React + Vite**, deployed to **Cloudflare Pages** (auto-deploy on push to `main`).
 
-The badge tracks the `Workers Builds: website` check on `main`. That is the Pages/Workers build of `npm run build` (Vitest + Playwright + Vite). Green means the latest `main` build passed and published `dist/`. Red or pending is the current build, not a static "deployed" label.
+The badge tracks the `Workers Builds: website` check on `main`. That is the Pages/Workers build of `npm run build` (Vitest + Vite). Green means the latest `main` build passed and published `dist/`. Red or pending is the current build, not a static "deployed" label. Playwright route smoke runs on pre-commit locally; the Cloudflare image cannot launch Chromium (missing libatk).
 
 ## Stack
 
@@ -25,7 +25,7 @@ npm run dev       # http://localhost:5173
 ## Build & Deploy
 
 ```bash
-npm run build      # Vitest + Playwright smoke, then Vite write to dist/
+npm run build      # Vitest, Vite write to dist/, then Playwright when not on Cloudflare
 npm run build:vite # Vite only
 npm run preview    # preview production build locally
 ```

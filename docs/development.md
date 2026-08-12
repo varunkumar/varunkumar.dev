@@ -10,12 +10,12 @@ npm run dev        # starts Vite dev server at http://localhost:5173
 ## Build & Deploy
 
 ```bash
-npm run build      # Vitest + Playwright smoke, then Vite write to dist/
+npm run build      # Vitest, Vite write to dist/, then Playwright smoke
 npm run build:vite # Vite only (used by Playwright; skip if you want the full gate)
 npm run preview    # preview the production build locally
 ```
 
-Cloudflare Pages runs `npm run build` on push to `main`, so the same unit and route smoke tests run in the Pages build before `dist/` is published.
+Cloudflare Pages/Workers Builds runs `npm run build` on push to `main`. That always runs Vitest and Vite. Playwright is skipped on that image: Chromium needs OS libraries (libatk) the build environment does not provide. Pre-commit still runs the full smoke locally.
 
 ## Tests
 
@@ -25,7 +25,7 @@ npm run test:watch # Vitest in watch mode
 npm run test:e2e   # Playwright smoke over /, /projects, /about
 ```
 
-`test:e2e` installs Chromium if needed, builds with `build:vite`, serves `dist/` on port 4173, and walks every SPA route plus in-app nav.
+`test:e2e` installs Chromium if needed, builds with `build:vite`, serves `dist/` on port 4173, and walks every SPA route plus in-app nav. On Cloudflare (`WORKERS_CI` / `CF_PAGES`) it exits 0 without launching a browser.
 
 ## Code Quality
 

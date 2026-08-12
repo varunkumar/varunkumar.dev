@@ -8,7 +8,7 @@ import globals from 'globals';
 export default [
   js.configs.recommended,
   {
-    files: ['*.config.js', 'e2e/**/*.js'],
+    files: ['*.config.js', 'e2e/**/*.js', 'scripts/**/*.{js,mjs}'],
     languageOptions: {
       globals: {
         ...globals.node,
