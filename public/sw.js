@@ -1,4 +1,4 @@
-const CACHE = 'vk-v6';
+const CACHE = 'vk-v7';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
@@ -42,7 +42,8 @@ self.addEventListener('fetch', (e) => {
             const clone = res.clone();
             caches.open(CACHE).then((c) => c.put(request, clone));
           }
-          return res;
+          // Server errors (e.g. a 5xx from a third party) fall back to cache
+          return res.ok ? res : caches.match(request).then((c) => c || res);
         })
         .catch(() => caches.match(request))
     );
