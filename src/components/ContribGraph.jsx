@@ -167,6 +167,17 @@ function WalkingMascot() {
 /* ── ContribGraph ─────────────────────────────────────────── */
 export default function ContribGraph({ isDark }) {
   const [loaded, setLoaded] = React.useState(false);
+  const [attempt, setAttempt] = React.useState(0);
+  const failed = attempt >= 3 && !loaded;
+
+  // The chart comes from a third-party service that sometimes returns 5xx.
+  // Retry a couple of times with a cache-busting param, then give up visibly.
+  const handleError = () => {
+    if (attempt < 3) setTimeout(() => setAttempt((a) => a + 1), 1500);
+  };
+  const src = `https://ghchart.rshah.org/22c55e/varunkumar${
+    attempt > 0 && attempt < 3 ? `?r=${attempt}` : ''
+  }`;
 
   return (
     <div style={{ marginBottom: 6 }}>
@@ -225,15 +236,30 @@ export default function ContribGraph({ isDark }) {
                 color: T.fgMute,
               }}
             >
-              loading
-              <Cursor />
+              {failed ? (
+                <a
+                  href="https://github.com/varunkumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: T.fgMute }}
+                >
+                  contributions unavailable, view on github →
+                </a>
+              ) : (
+                <>
+                  loading
+                  <Cursor />
+                </>
+              )}
             </div>
           )}
           <img
             className={`contrib-img ${isDark ? 'dark' : 'light'}`}
-            src="https://ghchart.rshah.org/22c55e/varunkumar"
+            key={attempt}
+            src={src}
             alt="GitHub contributions"
             onLoad={() => setLoaded(true)}
+            onError={handleError}
             style={{ display: loaded ? 'block' : 'none' }}
           />
         </div>
